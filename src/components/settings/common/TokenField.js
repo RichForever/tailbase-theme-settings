@@ -11,7 +11,6 @@ const TokenField = ({ settingsGroup, fieldName }) => {
 			render={({ field }) => (
 				<FormTokenField
 					{...field}
-					label=""
 					__next40pxDefaultSize
 					__nextHasNoMarginBottom
 				/>

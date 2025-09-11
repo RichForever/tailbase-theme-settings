@@ -19,7 +19,10 @@ const ScriptField = ({ settingsGroup, fieldName }) => {
 				render={({ field }) => (
 					<CodeMirror
 						{...field}
-						placeholder={__('Place your code here', 'timbertail')}
+						placeholder={__(
+							'Place your code here',
+							'tt-theme-settings'
+						)}
 						height="300px"
 						theme="light"
 						options={{
@@ -27,6 +30,7 @@ const ScriptField = ({ settingsGroup, fieldName }) => {
 							mode: 'html',
 						}}
 						extensions={[html()]}
+						style={{ border: '1px solid #d7d7d8' }}
 					/>
 				)}
 			/>
@@ -36,7 +40,7 @@ const ScriptField = ({ settingsGroup, fieldName }) => {
 				render={({ field }) => (
 					<ToggleControl
 						{...field}
-						label={__('Activate scripts', 'timbertail')}
+						label={__('Activate scripts', 'tt-theme-settings')}
 						checked={field.value}
 						__nextHasNoMarginBottom
 					/>

@@ -107,14 +107,19 @@ const ThemeSettingsPage = () => {
 				isOpen={isOpen}
 				onConfirm={handleConfirm}
 				onCancel={handleCancel}
-				cancelButtonText={__('No, keep my settings', 'timbertail')}
-				confirmButtonText={__('Yes, reset all', 'timbertail')}
+				cancelButtonText={__(
+					'No, keep my settings',
+					'tt-theme-settings'
+				)}
+				confirmButtonText={__('Yes, reset all', 'tt-theme-settings')}
 			>
-				<Heading level={4}>{__('Confirm', 'timbertail')}</Heading>
+				<Heading level={4}>
+					{__('Confirm', 'tt-theme-settings')}
+				</Heading>
 				<p>
 					{__(
 						'Are you sure you want to reset all settings to their default values?',
-						'timbertail'
+						'tt-theme-settings'
 					)}
 				</p>
 			</ConfirmDialog>
@@ -124,7 +129,7 @@ const ThemeSettingsPage = () => {
 					<Card isRounded={false}>
 						<CardHeader>
 							<Heading level={1} style={{ fontWeight: 600 }}>
-								{__('Theme Settings', 'timbertail')}
+								{__('Theme Settings', 'tt-theme-settings')}
 							</Heading>
 							<Button
 								style={{ color: '#000' }}
@@ -165,8 +170,11 @@ const ThemeSettingsPage = () => {
 									}
 								>
 									{formMethods.formState.isSubmitting
-										? __('Saving…', 'timbertail')
-										: __('Save settings', 'timbertail')}
+										? __('Saving…', 'tt-theme-settings')
+										: __(
+												'Save settings',
+												'tt-theme-settings'
+											)}
 								</Button>
 								<Button
 									variant="tertiary"
@@ -176,7 +184,7 @@ const ThemeSettingsPage = () => {
 										formMethods.formState.isSubmitting
 									}
 								>
-									{__('Reset settings', 'timbertail')}
+									{__('Reset settings', 'tt-theme-settings')}
 								</Button>
 							</HStack>
 						</CardFooter>

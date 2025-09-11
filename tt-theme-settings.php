@@ -42,11 +42,11 @@ function tt_theme_settings_activate() {
         'commonSettings' => [
             'excerptLength' => 55,
             'customBodyClasses' => [],
-            'disableWordpressVersion' => false,
-            'addSvgSupport' => false,
-            'disableXmlRpc' => false,
+            'disableWordpressVersion' => true,
+            'addSvgSupport' => true,
+            'disableXmlRpc' => true,
             'disableAdminBar' => false,
-            'disableFileEdit' => false
+            'disableFileEdit' => true
         ],
         'scriptsSettings' => [
             'head' => [
