@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (2025-09-11)
+
+* feat: update dependencies and fix lint errors ([e4ddd92](https://github.com/RichForever/tt-theme-settings/commit/e4ddd92))
+
 ## [1.1.7](https://github.com/RichForever/tt-theme-settings/compare/1.1.6...1.1.7) (2025-03-06)
 
 ### 📦 Miscellaneous

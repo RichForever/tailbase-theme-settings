@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       TimberTail Theme Settings
  * Description:       This plugin provides a customizable theme settings page, built with React.
- * Version:           1.1.7
+ * Version:           1.2.0
  * Author:            MM
  */
 
