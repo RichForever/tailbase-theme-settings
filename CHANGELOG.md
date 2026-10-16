@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1](https://github.com/RichForever/tailbase-theme-settings/compare/1.3.0...1.3.1) (2026-10-16)
+
+### 🏗 Build System
+
+* disable github release ([b8da0c1](https://github.com/RichForever/tailbase-theme-settings/commit/b8da0c1d90fcf7e1be5f4d96fe6ee81c74345329))
+
 ## [1.3.0](https://github.com/RichForever/tailbase-theme-settings/compare/1.2.0...1.3.0) (2026-10-16)
 
 ### 🚀 Features

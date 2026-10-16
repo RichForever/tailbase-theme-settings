@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Tailbase Theme Settings
  * Description:       A theme settings page for the Tailbase theme, built with React: common tweaks, header/body/footer scripts and social media links.
- * Version:           1.3.0
+ * Version:           1.3.1
  * Requires at least: 6.5
  * Requires PHP:      8.0
  * Author:            MM
