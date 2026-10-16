@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0](https://github.com/RichForever/tailbase-theme-settings/compare/1.2.0...1.3.0) (2026-10-16)
+
+### 🚀 Features
+
+* rename of the plugin ([65cc406](https://github.com/RichForever/tailbase-theme-settings/commit/65cc406b4e4e25601614a31af7803c98261d629e))
+
 ## 1.2.0 (2025-09-11)
 
 * feat: update dependencies and fix lint errors ([e4ddd92](https://github.com/RichForever/tt-theme-settings/commit/e4ddd92))
