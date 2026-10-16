@@ -1,3 +1,4 @@
+import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import Section from '@components/layout/Section';
@@ -15,10 +16,10 @@ const CommonPanel = () => {
 	const sections = [
 		{
 			fieldName: 'excerptLength',
-			sectionTitle: __('Excerpt length', 'tt-theme-settings'),
+			sectionTitle: __('Excerpt length', 'tailbase-theme-settings'),
 			sectionDescription: __(
 				'Change the excerpt length. By default, WordPress excerpts show the first 55 words of a post.',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 			component: NumberField,
 		},
@@ -26,60 +27,66 @@ const CommonPanel = () => {
 			fieldName: 'customBodyClasses',
 			sectionTitle: __(
 				'Custom CSS classes for body tag',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 			sectionDescription: __(
 				'Add one or multiple custom CSS classes for the body tag.',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 			component: TokenField,
 		},
 		{
 			fieldName: 'disableWordpressVersion',
-			sectionTitle: __('WordPress version', 'tt-theme-settings'),
+			sectionTitle: __('WordPress version', 'tailbase-theme-settings'),
 			sectionDescription: __(
 				'To make it harder for malicious actors to detect which version of WordPress you are using, remove the WordPress version number from appearing anywhere in your site’s frontend code.',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 			sectionDirection: 'horizontal',
 			component: ToggleField,
 		},
 		{
 			fieldName: 'addSvgSupport',
-			sectionTitle: __('SVG Support', 'tt-theme-settings'),
+			sectionTitle: __('SVG Support', 'tailbase-theme-settings'),
 			sectionDescription: __(
 				'Enable SVG file type uploads.',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 			sectionDirection: 'horizontal',
 			component: ToggleField,
 		},
 		{
 			fieldName: 'disableXmlRpc',
-			sectionTitle: __('XML-RPC Support', 'tt-theme-settings'),
+			sectionTitle: __('XML-RPC Support', 'tailbase-theme-settings'),
 			sectionDescription: __(
 				'Disable XML-RPC for security purposes.',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 			sectionDirection: 'horizontal',
 			component: ToggleField,
 		},
 		{
 			fieldName: 'disableAdminBar',
-			sectionTitle: __('Admin Bar on Frontend', 'tt-theme-settings'),
+			sectionTitle: __(
+				'Admin Bar on Frontend',
+				'tailbase-theme-settings'
+			),
 			sectionDescription: __(
 				'Disable the admin bar for all users except site administrators.',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 			sectionDirection: 'horizontal',
 			component: ToggleField,
 		},
 		{
 			fieldName: 'disableFileEdit',
-			sectionTitle: __('Plugin and Theme Editor', 'tt-theme-settings'),
+			sectionTitle: __(
+				'Plugin and Theme Editor',
+				'tailbase-theme-settings'
+			),
 			sectionDescription: __(
 				'Disable the plugin/theme editor.',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 			sectionDirection: 'horizontal',
 			component: ToggleField,
@@ -98,9 +105,8 @@ const CommonPanel = () => {
 					},
 					index
 				) => (
-					<>
+					<Fragment key={fieldName}>
 						<Section
-							key={fieldName}
 							sectionTitle={sectionTitle}
 							sectionDescription={sectionDescription}
 							direction={sectionDirection}
@@ -113,7 +119,7 @@ const CommonPanel = () => {
 						{index < sections.length - 1 && (
 							<Divider style={{ color: '#d7d7d8' }} />
 						)}
-					</>
+					</Fragment>
 				)
 			)}
 		</VStack>

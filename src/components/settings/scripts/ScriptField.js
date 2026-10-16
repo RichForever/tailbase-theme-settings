@@ -21,7 +21,7 @@ const ScriptField = ({ settingsGroup, fieldName }) => {
 						{...field}
 						placeholder={__(
 							'Place your code here',
-							'tt-theme-settings'
+							'tailbase-theme-settings'
 						)}
 						height="300px"
 						theme="light"
@@ -40,7 +40,10 @@ const ScriptField = ({ settingsGroup, fieldName }) => {
 				render={({ field }) => (
 					<ToggleControl
 						{...field}
-						label={__('Activate scripts', 'tt-theme-settings')}
+						label={__(
+							'Activate scripts',
+							'tailbase-theme-settings'
+						)}
 						checked={field.value}
 						__nextHasNoMarginBottom
 					/>

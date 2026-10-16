@@ -1,3 +1,4 @@
+import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import Section from '@components/layout/Section';
@@ -13,26 +14,26 @@ const ScriptsPanel = () => {
 	const sections = [
 		{
 			fieldName: 'head',
-			sectionTitle: __('Scripts in Header', 'tt-theme-settings'),
+			sectionTitle: __('Scripts in Header', 'tailbase-theme-settings'),
 			sectionDescription: __(
 				'These scripts will be printed in the <head> section',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 		},
 		{
 			fieldName: 'body',
-			sectionTitle: __('Scripts in Body', 'tt-theme-settings'),
+			sectionTitle: __('Scripts in Body', 'tailbase-theme-settings'),
 			sectionDescription: __(
 				'These scripts will be printed in the <body> section',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 		},
 		{
 			fieldName: 'footer',
-			sectionTitle: __('Scripts in Footer', 'tt-theme-settings'),
+			sectionTitle: __('Scripts in Footer', 'tailbase-theme-settings'),
 			sectionDescription: __(
 				'These scripts will be printed in the <footer> section',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			),
 		},
 	];
@@ -41,9 +42,8 @@ const ScriptsPanel = () => {
 		<VStack spacing={8}>
 			{sections.map(
 				({ fieldName, sectionTitle, sectionDescription }, index) => (
-					<>
+					<Fragment key={fieldName}>
 						<Section
-							key={fieldName}
 							sectionTitle={sectionTitle}
 							sectionDescription={sectionDescription}
 						>
@@ -55,7 +55,7 @@ const ScriptsPanel = () => {
 						{index < sections.length - 1 && (
 							<Divider style={{ color: '#d7d7d8' }} />
 						)}
-					</>
+					</Fragment>
 				)
 			)}
 		</VStack>

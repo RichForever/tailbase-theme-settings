@@ -7,7 +7,7 @@ const App = () => {
 	return <ThemeSettingsPage />;
 };
 
-const rootElement = document.getElementById('tt-theme-settings');
+const rootElement = document.getElementById('tailbase-theme-settings');
 if (rootElement) {
 	createRoot(rootElement).render(<App />);
 }

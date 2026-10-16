@@ -18,10 +18,6 @@ import Section from '@components/layout/Section';
 import SocialMediaItem from '@components/settings/social/SocialMediaItem';
 import { useConfirmDialog } from '@hooks/useConfirmDialog';
 
-// Import Pragmatic DnD
-import { dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
-
 const SocialMediaPanel = () => {
 	const { control } = useFormContext();
 	const { fields, append, remove, move } = useFieldArray({
@@ -45,47 +41,15 @@ const SocialMediaPanel = () => {
 		setLastAddedIndex(null);
 	};
 
-	// Set up drop target for the list
-	const [dropTargetRef] = useState(() => {
-		const element = document.createElement('div');
-
-		combine(
-			dropTargetForElements({
-				element,
-				onDragEnter: () => {},
-				onDragLeave: () => {},
-				onDrop: ({ source }) => {
-					const sourceData = source.data;
-					const draggedIdx = sourceData.index;
-					const dropIdx = Array.from(element.children).findIndex(
-						(child) =>
-							child.contains(
-								document.elementFromPoint(
-									sourceData.clientX,
-									sourceData.clientY
-								)
-							)
-					);
-
-					if (draggedIdx !== dropIdx && dropIdx !== -1) {
-						move(draggedIdx, dropIdx);
-					}
-				},
-			})
-		);
-
-		return element;
-	});
-
 	const { isOpen, handleShowDialog, handleConfirm, handleCancel } =
 		useConfirmDialog(handleRemoveAllItems);
 
 	return (
 		<Section
-			sectionTitle={__('Social Media', 'tt-theme-settings')}
+			sectionTitle={__('Social Media', 'tailbase-theme-settings')}
 			sectionDescription={__(
 				'Add your social media platforms',
-				'tt-theme-settings'
+				'tailbase-theme-settings'
 			)}
 		>
 			<VStack spacing={4}>
@@ -93,11 +57,11 @@ const SocialMediaPanel = () => {
 					<p>
 						{__(
 							'No social media links added yet. Click the button below to add one.',
-							'tt-theme-settings'
+							'tailbase-theme-settings'
 						)}
 					</p>
 				) : (
-					<div ref={dropTargetRef} style={{ position: 'relative' }}>
+					<div style={{ position: 'relative' }}>
 						{fields.map((field, index) => (
 							<SocialMediaItem
 								key={field.id}
@@ -118,16 +82,22 @@ const SocialMediaPanel = () => {
 					isOpen={isOpen}
 					onConfirm={handleConfirm}
 					onCancel={handleCancel}
-					cancelButtonText={__('No, thanks', 'tt-theme-settings')}
-					confirmButtonText={__('Yes, please!', 'tt-theme-settings')}
+					cancelButtonText={__(
+						'No, thanks',
+						'tailbase-theme-settings'
+					)}
+					confirmButtonText={__(
+						'Yes, please!',
+						'tailbase-theme-settings'
+					)}
 				>
 					<Heading level={4}>
-						{__('Confirm', 'tt-theme-settings')}
+						{__('Confirm', 'tailbase-theme-settings')}
 					</Heading>
 					<p>
 						{__(
 							'Are you sure you want to remove all items?',
-							'tt-theme-settings'
+							'tailbase-theme-settings'
 						)}
 					</p>
 				</ConfirmDialog>
@@ -138,7 +108,7 @@ const SocialMediaPanel = () => {
 						onClick={handleAddNew}
 						style={{ width: 'fit-content' }}
 					>
-						{__('Add item', 'tt-theme-settings')}
+						{__('Add item', 'tailbase-theme-settings')}
 					</Button>
 
 					{fields.length > 0 && (
@@ -148,7 +118,7 @@ const SocialMediaPanel = () => {
 							onClick={handleShowDialog}
 							style={{ width: 'fit-content' }}
 						>
-							{__('Remove all items', 'tt-theme-settings')}
+							{__('Remove all items', 'tailbase-theme-settings')}
 						</Button>
 					)}
 				</HStack>

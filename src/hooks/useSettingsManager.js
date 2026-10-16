@@ -1,9 +1,12 @@
 import { useEffect, useState } from '@wordpress/element';
 
 import apiFetch from '@wordpress/api-fetch';
+import { __ } from '@wordpress/i18n';
 
 import { useNotice } from '@hooks/useNotice';
 import { useSnackbar } from '@hooks/useSnackbar';
+
+const SETTINGS_PATH = 'tailbase/v1/settings';
 
 export const useSettingsManager = () => {
 	const [settings, setSettings] = useState({}); // Use a single object to hold all settings
@@ -15,10 +18,13 @@ export const useSettingsManager = () => {
 	useEffect(() => {
 		(async () => {
 			try {
-				const response = await apiFetch({ path: 'tt/v1/settings' });
-				setSettings(response);
+				setSettings(await apiFetch({ path: SETTINGS_PATH }));
 			} catch (error) {
-				showNotice(true, 'error', 'Error fetching settings.');
+				showNotice(
+					true,
+					'error',
+					__('Error fetching settings.', 'tailbase-theme-settings')
+				);
 				// eslint-disable-next-line no-console
 				console.error('Error fetching settings:', error);
 			} finally {
@@ -28,37 +34,39 @@ export const useSettingsManager = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	const submitSettings = async (data) => {
+	// Saves or resets the settings. The server returns the sanitized settings, which become the new form values.
+	const request = async (options) => {
 		try {
 			const response = await apiFetch({
-				path: 'tt/v1/settings',
-				method: 'POST',
-				data: {
-					tt_theme_settings: data,
-				},
-				parse: false,
+				path: SETTINGS_PATH,
+				...options,
 			});
 
-			const responseData = await response.json();
-
-			if (response.ok) {
-				showNotice(true, 'success', responseData.message);
-				showSnackbar(responseData.message);
-			} else {
-				showNotice(true, 'warning', responseData.message);
-				showSnackbar(responseData.message);
-			}
+			setSettings(response.settings);
+			showNotice(true, 'success', response.message);
+			showSnackbar(response.message);
 		} catch (error) {
-			showNotice(true, 'error', 'An unexpected error occurred.');
-			showSnackbar(error.message);
+			const message =
+				error?.message ||
+				__('An unexpected error occurred.', 'tailbase-theme-settings');
+
+			showNotice(true, 'error', message);
+			showSnackbar(message);
 		}
 	};
+
+	const submitSettings = (data) =>
+		request({ method: 'POST', data: { settings: data } });
+
+	// Resets to the defaults defined in PHP (Tailbase_Settings::defaults()).
+	const resetSettings = () => request({ method: 'DELETE' });
 
 	return {
 		notice,
 		dismissNotice,
 		settings,
 		submitSettings,
+		resetSettings,
 		isFetchingSettings,
 		notices,
 		showSnackbar,

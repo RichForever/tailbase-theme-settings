@@ -23,7 +23,7 @@ export const useNotice = () => {
 		});
 	};
 
-	// Automatically hide the notice after 4 seconds
+	// Automatically hide the notice after 2 seconds
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			dismissNotice();

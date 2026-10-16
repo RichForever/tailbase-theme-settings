@@ -7,10 +7,8 @@
 		"baseUrl": "./",
 		"paths": {
 			"@/*": ["src/*"],
-			"@styles/*": ["src/styles/*"],
 			"@components/*": ["src/components/*"],
-			"@hooks/*": ["src/hooks/*"],
-			"@config/*": ["src/config/*"]
+			"@hooks/*": ["src/hooks/*"]
 		}
 	},
 	"exclude": ["node_modules", "build"]

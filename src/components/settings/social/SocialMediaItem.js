@@ -38,7 +38,7 @@ const SocialMediaItem = ({
 		formState: { errors },
 	} = useFormContext();
 	const platform = watch(`${settingsGroup}.${index}.platform`);
-	const title = platform || __('New Social Media', 'tt-theme-settings');
+	const title = platform || __('New Social Media', 'tailbase-theme-settings');
 
 	const dragHandleRef = useRef(null);
 	const itemRef = useRef(null);
@@ -137,7 +137,7 @@ const SocialMediaItem = ({
 											{...field}
 											label={__(
 												'Platform Name',
-												'tt-theme-settings'
+												'tailbase-theme-settings'
 											)}
 											help={
 												errors?.[settingsGroup]?.[index]
@@ -179,7 +179,7 @@ const SocialMediaItem = ({
 											{...field}
 											label={__(
 												'URL',
-												'tt-theme-settings'
+												'tailbase-theme-settings'
 											)}
 											help={
 												errors?.[settingsGroup]?.[index]
@@ -216,7 +216,7 @@ const SocialMediaItem = ({
 											{...field}
 											label={__(
 												'Icon (URL or SVG file name)',
-												'tt-theme-settings'
+												'tailbase-theme-settings'
 											)}
 											__nextHasNoMarginBottom
 											__next40pxDefaultSize
@@ -232,7 +232,7 @@ const SocialMediaItem = ({
 								onClick={handleRemove}
 								style={{ width: 'fit-content' }}
 							>
-								{__('Remove item', 'tt-theme-settings')}
+								{__('Remove item', 'tailbase-theme-settings')}
 							</Button>
 						</PanelRow>
 					</VStack>
